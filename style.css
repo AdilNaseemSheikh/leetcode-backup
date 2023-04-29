@@ -1,0 +1,78 @@
+.btn-animate,
+.btn-animate.hovered {
+  background: linear-gradient(var(--gray-light), var(--gray)) fixed;
+  box-shadow: 0 10px 20px 0 rgba(255, 106, 0, 0.3), 0 20px 40px 0 rgba(255, 106, 0, 0.2);
+  transition-duration: 0.5s;
+}
+
+@keyframes bounceInLeft {
+  from, 60%, 75%, 90%, to {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+
+  0% {
+    opacity: 0;
+    transform: translateX(-3000px);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translateX(25px);
+  }
+
+  75% {
+    transform: translateX(-10px);
+  }
+
+  90% {
+    transform: translateX(5px);
+  }
+
+  to {
+    transform: none;
+  }
+}
+
+@keyframes bounceInDown {
+  from, 60%, 75%, 90%, to {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+
+  0% {
+    opacity: 0;
+    transform: translateY(-3000px);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translateY(25px);
+  }
+
+  75% {
+    transform: translateY(-10px);
+  }
+
+  90% {
+    transform: translateY(5px);
+  }
+
+  to {
+    transform: none;
+  }
+}
+
+#logo.animated {
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+  -webkit-animation-name: bounceInLeft;
+  animation-name: bounceInLeft;
+}
+
+#usernav.animated {
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+  -webkit-animation-name: bounceInDown;
+  animation-name: bounceInDown;
+}
