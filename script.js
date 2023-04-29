@@ -24,28 +24,29 @@
 //   third === Number.MIN_SAFE_INTEGER ? `;( no third so, second = ${second}` : `third => ${third}`
 // );
 
-// updated third max copied from leetcode
+// updated third max finally done
 
 /**
  * @param {number[]} nums
  * @return {number}
  */
-var thirdMax = function(nums) {
-  // if(nums.length===1) return nums[0];
-  // if(nums.length===2) return nums[0]>nums[1]?nums[0]:nums[1];
-
+var thirdMax = function (nums) {
   let max = (second = third = Number.MIN_SAFE_INTEGER);
-for (let index = 0; index < nums.length; index++) {
-if (nums[index] > max) {
-  third = second;
-  second = max;
-  max = nums[index];
-} else if (nums[index] > second && nums[index] !== max) {
-  third = second;
-  second = nums[index];
-} else if (nums[index] > third && nums[index] !== second && nums[index] !== max) {
-  third = nums[index];
-}
-}
-  return third ===Number.MIN_SAFE_INTEGER ? max : third;
+  for (let index = 0; index < nums.length; index++) {
+    if (nums[index] > max) {
+      third = second;
+      second = max;
+      max = nums[index];
+    } else if (nums[index] > second && nums[index] !== max) {
+      third = second;
+      second = nums[index];
+    } else if (
+      nums[index] > third &&
+      nums[index] !== second &&
+      nums[index] !== max
+    ) {
+      third = nums[index];
+    }
+  }
+  return third === Number.MIN_SAFE_INTEGER ? max : third;
 };
