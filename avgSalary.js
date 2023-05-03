@@ -1,3 +1,8 @@
+/*
+Average Salary Excluding the Minimum and Maximum Salary
+https://leetcode.com/problems/average-salary-excluding-the-minimum-and-maximum-salary/
+*/
+
 const salary = [4000,3000,1000,2000];
 let max = (min = salary[0]);
 let avg = 0;
