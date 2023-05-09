@@ -10,5 +10,9 @@ Please solve it without the built-in Array.map method.
 // TOPIC: Basic Array Transforms
 
 var map = function (arr, fn) {
-  return arr.map((el, i) => fn(el, i));
+    const res=[];
+    //   without using map method
+    for(let i = 0;i<arr.length;i++)
+        res.push(fn(arr[i],i));
+    return res;
 };
