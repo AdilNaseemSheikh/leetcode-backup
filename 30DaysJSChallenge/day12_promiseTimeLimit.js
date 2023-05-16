@@ -1,3 +1,7 @@
+// https://leetcode.com/problems/promise-time-limit/
+
+// TOPIC: Promise
+
 var timeLimit = function (fn, t) {
   return async function (...args) {
     return Promise.race([
