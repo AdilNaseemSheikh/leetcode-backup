@@ -1,14 +1,22 @@
+https://leetcode.com/problems/promise-pool
+
 var promisePool = async function (functions, n) {
   const pool = [];
   const exec = async function (fn) {
-    console.log('pushing ',fn,' to pool');
+    console.log("pushing ", fn, " to pool");
+    pool.push(fn);
     await fn();
-    pool.pop();
+    const poped = pool.pop();
+    console.log(poped, " was poped");
   };
 
   while (functions.length !== 0) {
-    const fn = functions.pop();
-    await exec(fn);
+    if (pool.length < n) {
+      const fn = functions.pop();
+      exec(fn);
+    } else {
+      console.log("Pool is currently full");
+    }
   }
 
   //   for (let i = 0; i < functions.length; i++) {
@@ -24,4 +32,4 @@ var promisePool = async function (functions, n) {
 };
 
 const sleep = (t) => new Promise((res) => setTimeout(res, t));
-promisePool([() => sleep(500), () => sleep(400)], 1).then(console.log); // After 900ms
+promisePool([() => sleep(500), () => sleep(400)], 2).then(console.log); // After 900ms
